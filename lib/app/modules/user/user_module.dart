@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'presenter/pages/random_user/random_user_page.dart';
+import 'presenter/pages/profile/profile_page.dart';
 
 class UserModule extends Module {
   @override
@@ -8,6 +8,9 @@ class UserModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (_, __) => const RandomUserPage()),
+        ChildRoute(
+          '/',
+          child: (_, args) => ProfilePage(localUserId: args.data),
+        ),
       ];
 }
