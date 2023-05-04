@@ -1,8 +1,10 @@
+import 'package:equatable/equatable.dart';
+
 import 'location_entity.dart';
 import 'name_entity.dart';
 import 'picture_entity.dart';
 
-class UserEntity {
+class UserEntity extends Equatable {
   final String uuid;
   final String gender;
   final String email;
@@ -14,7 +16,7 @@ class UserEntity {
   final LocationEntity location;
   final PictureEntity picture;
 
-  UserEntity({
+  const UserEntity({
     required this.uuid,
     required this.gender,
     required this.email,
@@ -26,4 +28,7 @@ class UserEntity {
     required this.location,
     required this.picture,
   });
+
+  @override
+  List<Object?> get props => [uuid];
 }

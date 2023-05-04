@@ -34,4 +34,5 @@ class ColorsConstants {
   static const Color divider = Color(0xFF333333);
   static const Color error = Color(0xFFff004e);
   static const Color success = Color(0xFF04FD7F);
+  static const Color delete = Color(0xfffe0012);
 }

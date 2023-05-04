@@ -1,3 +1,5 @@
+import 'package:user/app/core/utils/print_debug_utils.dart';
+
 import '../../../../core/failures/failures.dart';
 import '../../../../core/helpers/http/http.dart';
 
@@ -19,6 +21,7 @@ class RemoteUserDataSourceImpl implements RemoteUserDataSource {
     } on Failure {
       rethrow;
     } catch (e, stackTrace) {
+      printDebug(stackTrace);
       throw ParseFailure(
         message: 'Erro ao mapear o json',
         stackTrace: stackTrace,

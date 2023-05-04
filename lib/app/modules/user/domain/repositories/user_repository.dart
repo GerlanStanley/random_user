@@ -10,4 +10,6 @@ abstract class UserRepository {
   Future<Either<Failure, List<UserEntity>>> getAllSaved();
 
   Future<Either<Failure, bool>> save({required UserEntity user});
+
+  Future<Either<Failure, bool>> delete({required UserEntity user});
 }

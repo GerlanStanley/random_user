@@ -4,4 +4,6 @@ abstract class LocalUserDataSource {
   Future<List<UserEntity>> getAll();
 
   Future<bool> save({required UserEntity user});
+
+  Future<bool> delete({required UserEntity user});
 }

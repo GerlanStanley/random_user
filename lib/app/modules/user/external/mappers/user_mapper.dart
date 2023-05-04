@@ -29,7 +29,7 @@ class UserMapper {
       'uuid': entity.uuid,
       'gender': entity.gender,
       'email': entity.email,
-      'birthdate': DateTimeUtils.formattedDateTime(entity.birthdate),
+      'birthdate': DateTimeUtils.formattedDatabaseDateTime(entity.birthdate),
       'age': entity.age,
       'phone': entity.phone,
       'cell': entity.cell,

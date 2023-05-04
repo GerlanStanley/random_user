@@ -12,7 +12,7 @@ class LocationMapper {
       city: json['city'],
       state: json['state'],
       country: json['country'],
-      postcode: json['postcode'],
+      postcode: json['postcode'].toString(),
       latitude: json.containsKey('latitude')
           ? json['latitude']
           : json['coordinates']['latitude'],

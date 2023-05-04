@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx/mobx.dart';
+import 'package:user/app/modules/user/presenter/stores/save_user/save_user_store.dart';
 
 import '../../../../../core/widgets/failure_widget.dart';
 import '../../../../../core/widgets/load_widget.dart';
 
+import '../../../../../core/widgets/toast_widget.dart';
 import '../../stores/get_random_user/get_random_user_state.dart';
 import '../../stores/get_random_user/get_random_user_store.dart';
 
+import '../../stores/save_user/save_user_state.dart';
 import 'components/content_component.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -21,12 +25,39 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final _getRandomUserStore = Modular.get<GetRandomUserStore>();
+  final _saveUserStore = Modular.get<SaveUserStore>();
+
+  final List<ReactionDisposer> _disposers = [];
 
   @override
   void initState() {
     super.initState();
 
     _getRandomUserStore.getRandom();
+
+    /// Reações
+    _disposers.add(
+      reaction(
+        (_) => _saveUserStore.state,
+        _saveState,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    for (var disposer in _disposers) {
+      disposer();
+    }
+    super.dispose();
+  }
+
+  void _saveState(_) {
+    final state = _saveUserStore.state;
+
+    if (state is SuccessSaveUserState) {
+      showToastWidget(context: context, message: 'Perfil salvo');
+    }
   }
 
   @override
@@ -34,9 +65,21 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.save),
+          Observer(
+            builder: (context) {
+              final getState = _getRandomUserStore.state;
+              final saveState = _saveUserStore.state;
+
+              return IconButton(
+                onPressed: getState is SuccessGetRandomUserState &&
+                        saveState is! LoadingSaveUserState
+                    ? () {
+                        _saveUserStore.save(user: getState.user);
+                      }
+                    : null,
+                icon: const Icon(Icons.save),
+              );
+            },
           ),
           IconButton(
             onPressed: () {
@@ -45,7 +88,9 @@ class _ProfilePageState extends State<ProfilePage> {
             icon: const Icon(Icons.list),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _getRandomUserStore.getRandom();
+            },
             icon: const Icon(Icons.refresh),
           ),
         ],

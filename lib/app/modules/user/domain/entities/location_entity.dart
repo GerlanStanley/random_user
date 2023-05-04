@@ -4,7 +4,7 @@ class LocationEntity {
   final String city;
   final String state;
   final String country;
-  final int postcode;
+  final String postcode;
   final String latitude;
   final String longitude;
 

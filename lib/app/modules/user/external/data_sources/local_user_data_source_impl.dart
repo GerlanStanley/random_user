@@ -30,7 +30,27 @@ class LocalUserDataSourceImpl implements LocalUserDataSource {
   Future<bool> save({required UserEntity user}) async {
     List<UserEntity> users = await getAll();
 
+    if (users.contains(user)) {
+      return true;
+    }
+
     users.add(user);
+
+    List usersMapList =
+        users.map((element) => UserMapper.toMap(element)).toList();
+
+    return await _sharedPreferences.setString(key, json.encode(usersMapList));
+  }
+
+  @override
+  Future<bool> delete({required UserEntity user}) async {
+    List<UserEntity> users = await getAll();
+
+    if (!users.contains(user)) {
+      return true;
+    }
+
+    users.remove(user);
 
     List usersMapList =
         users.map((element) => UserMapper.toMap(element)).toList();

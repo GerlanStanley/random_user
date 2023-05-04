@@ -46,4 +46,14 @@ class UserRepositoryImpl implements UserRepository {
       return Left(e);
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> delete({required UserEntity user}) async {
+    try {
+      var response = await _localDataSource.delete(user: user);
+      return Right(response);
+    } on Failure catch (e) {
+      return Left(e);
+    }
+  }
 }
