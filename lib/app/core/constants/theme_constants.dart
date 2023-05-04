@@ -6,8 +6,20 @@ class ThemeConstants {
   static ThemeData light = ThemeData(
     fontFamily: "NunitoSans",
     primaryColor: ColorsConstants.primary,
-    brightness: Brightness.dark,
-    backgroundColor: ColorsConstants.background,
+    brightness: Brightness.light,
+    colorScheme: const ColorScheme(
+      brightness: Brightness.light,
+      primary: ColorsConstants.primary,
+      onPrimary: Colors.white,
+      secondary: ColorsConstants.primary,
+      onSecondary: Colors.white,
+      background: ColorsConstants.background,
+      onBackground: ColorsConstants.text,
+      error: ColorsConstants.error,
+      onError: Colors.white,
+      surface: ColorsConstants.card,
+      onSurface: ColorsConstants.text,
+    ),
     scaffoldBackgroundColor: ColorsConstants.background,
     cardColor: ColorsConstants.card,
     cardTheme: const CardTheme(
