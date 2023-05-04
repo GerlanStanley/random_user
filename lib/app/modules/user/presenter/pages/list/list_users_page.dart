@@ -5,8 +5,8 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../../core/widgets/failure_widget.dart';
 import '../../../../../core/widgets/load_widget.dart';
-
 import '../../../../../core/widgets/toast_widget.dart';
+
 import '../../stores/delete_user/delete_user_state.dart';
 import '../../stores/delete_user/delete_user_store.dart';
 import '../../stores/get_all_users_saved/get_all_users_saved_state.dart';
@@ -62,7 +62,9 @@ class _ListUsersPageState extends State<ListUsersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Perfis salvos'),
+      ),
       body: Observer(
         builder: (context) {
           final state = _getAllUsersSavedStore.state;

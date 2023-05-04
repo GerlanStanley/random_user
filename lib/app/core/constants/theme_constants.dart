@@ -54,6 +54,12 @@ class ThemeConstants {
         fontSize: 26,
         fontFamily: "NunitoSans",
       ),
+      displaySmall: TextStyle(
+        color: ColorsConstants.text,
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+        fontFamily: "NunitoSans",
+      ),
       titleLarge: TextStyle(
         color: ColorsConstants.text,
         fontWeight: FontWeight.w800,

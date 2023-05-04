@@ -24,15 +24,15 @@ class FailureWidget extends StatelessWidget {
           children: [
             Icon(
               Icons.warning_amber_rounded,
-              color: Theme.of(context).textTheme.subtitle2?.color,
+              color: Theme.of(context).textTheme.titleSmall?.color,
               size: 80,
             ),
             Container(
               margin: const EdgeInsets.only(top: 4),
               child: Text(
-                "Ops",
+                'Ops',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.subtitle2,
+                style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
             Container(
@@ -40,13 +40,13 @@ class FailureWidget extends StatelessWidget {
               child: Text(
                 message,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 20),
               child: PrimaryElevatedButtonWidget(
-                text: "Touch to reaload",
+                text: 'Tentar novamente',
                 onPressed: onPressed,
               ),
             )
