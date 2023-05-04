@@ -6,4 +6,8 @@ import '../entities/user_entity.dart';
 
 abstract class UserRepository {
   Future<Either<Failure, UserEntity>> getRandom();
+
+  Future<Either<Failure, List<UserEntity>>> getAllSaved();
+
+  Future<Either<Failure, bool>> save({required UserEntity user});
 }

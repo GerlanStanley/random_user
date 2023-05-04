@@ -1,4 +1,7 @@
+import '../../../../core/utils/utils.dart';
+
 import '../../domain/entities/user_entity.dart';
+
 import 'location_mapper.dart';
 import 'name_mapper.dart';
 import 'picture_mapper.dart';
@@ -19,5 +22,20 @@ class UserMapper {
       location: LocationMapper.fromMap(json['location']),
       picture: PictureMapper.fromMap(json['picture']),
     );
+  }
+
+  static Map toMap(UserEntity entity) {
+    return {
+      'uuid': entity.uuid,
+      'gender': entity.gender,
+      'email': entity.email,
+      'birthdate': DateTimeUtils.formattedDateTime(entity.birthdate),
+      'age': entity.age,
+      'phone': entity.phone,
+      'cell': entity.cell,
+      'name': NameMapper.toMap(entity.name),
+      'location': LocationMapper.toMap(entity.location),
+      'picture': PictureMapper.toMap(entity.picture),
+    };
   }
 }

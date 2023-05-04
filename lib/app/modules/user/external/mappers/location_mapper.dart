@@ -21,4 +21,17 @@ class LocationMapper {
           : json['coordinates']['longitude'],
     );
   }
+
+  static Map toMap(LocationEntity entity) {
+    return {
+      'street_number': entity.streetNumber,
+      'street_name': entity.streetName,
+      'city': entity.city,
+      'state': entity.state,
+      'country': entity.country,
+      'postcode': entity.postcode,
+      'latitude': entity.latitude,
+      'longitude': entity.longitude,
+    };
+  }
 }

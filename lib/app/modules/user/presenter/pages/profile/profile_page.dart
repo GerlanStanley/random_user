@@ -32,7 +32,24 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.save),
+          ),
+          IconButton(
+            onPressed: () {
+              Modular.to.pushNamed('./list');
+            },
+            icon: const Icon(Icons.list),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
+      ),
       body: Observer(
         builder: (context) {
           final state = _getRandomUserStore.state;
@@ -42,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
           } else if (state is FailureGetRandomUserState) {
             return FailureWidget(
               message: state.error,
-              onPressed: () => _getRandomUserStore.getRandom(),
+              onPressed: _getRandomUserStore.getRandom,
             );
           } else if (state is SuccessGetRandomUserState) {
             return ContentComponent(user: state.user);

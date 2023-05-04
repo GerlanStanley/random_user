@@ -8,4 +8,12 @@ class PictureMapper {
       thumbnail: json['thumbnail'],
     );
   }
+
+  static Map toMap(PictureEntity entity) {
+    return {
+      'large': entity.large,
+      'medium': entity.medium,
+      'thumbnail': entity.thumbnail,
+    };
+  }
 }

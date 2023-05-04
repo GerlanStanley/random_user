@@ -8,4 +8,12 @@ class NameMapper {
       last: json['last'],
     );
   }
+
+  static Map toMap(NameEntity entity) {
+    return {
+      'title': entity.title,
+      'first': entity.first,
+      'last': entity.last,
+    };
+  }
 }

@@ -1,10 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-class ListUsersPage extends StatelessWidget {
+import '../../../../../core/widgets/failure_widget.dart';
+import '../../../../../core/widgets/load_widget.dart';
+
+import '../../stores/get_all_users_saved/get_all_users_saved_state.dart';
+import '../../stores/get_all_users_saved/get_all_users_saved_store.dart';
+
+import 'components/list_view_component.dart';
+
+class ListUsersPage extends StatefulWidget {
   const ListUsersPage({Key? key}) : super(key: key);
 
   @override
+  State<ListUsersPage> createState() => _ListUsersPageState();
+}
+
+class _ListUsersPageState extends State<ListUsersPage> {
+  final _getAllUsersSavedStore = Modular.get<GetAllUsersSavedStore>();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getAllUsersSavedStore.getAll();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Observer(
+        builder: (context) {
+          final state = _getAllUsersSavedStore.state;
+
+          if (state is LoadingGetAllUsersSavedState) {
+            return const LoadWidget();
+          } else if (state is FailureGetAllUsersSavedState) {
+            return FailureWidget(
+              message: state.error,
+              onPressed: _getAllUsersSavedStore.getAll,
+            );
+          } else if (state is SuccessGetAllUsersSavedState) {
+            return ListViewComponent(users: state.users);
+          }
+
+          return Container();
+        },
+      ),
+    );
   }
 }
