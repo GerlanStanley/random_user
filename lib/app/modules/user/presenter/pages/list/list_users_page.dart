@@ -36,7 +36,7 @@ class _ListUsersPageState extends State<ListUsersPage> {
     /// Reações
     _disposers.add(
       reaction(
-            (_) => _deleteUserStore.state,
+        (_) => _deleteUserStore.state,
         _deleteState,
       ),
     );

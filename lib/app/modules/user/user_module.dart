@@ -70,7 +70,7 @@ class UserModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
-          child: (_, args) => ProfilePage(localUserId: args.data),
+          child: (_, args) => ProfilePage(localUser: args.data),
         ),
         ChildRoute(
           '/list',

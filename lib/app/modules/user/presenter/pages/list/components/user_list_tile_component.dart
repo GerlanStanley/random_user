@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../../../../../core/constants/colors_constants.dart';
@@ -35,16 +36,21 @@ class UserListTileComponent extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        children: [
-          CachedNetworkImageWidget(image: user.picture.medium),
-          Column(
-            children: [
-              Text(user.name.fullName),
-              Text(user.email),
-            ],
-          )
-        ],
+      child: InkWell(
+        onTap: () {
+          Modular.to.pushNamed('./', arguments: user);
+        },
+        child: Row(
+          children: [
+            CachedNetworkImageWidget(image: user.picture.medium),
+            Column(
+              children: [
+                Text(user.name.fullName),
+                Text(user.email),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
