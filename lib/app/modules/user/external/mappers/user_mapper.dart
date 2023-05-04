@@ -18,6 +18,10 @@ class UserMapper {
       age: json.containsKey('age') ? json['age'] : json['dob']['age'],
       phone: json['phone'],
       cell: json['cell'],
+      nationality: json['nat'],
+      username: json.containsKey('username')
+          ? json['username']
+          : json['login']['username'],
       name: NameMapper.fromMap(json['name']),
       location: LocationMapper.fromMap(json['location']),
       picture: PictureMapper.fromMap(json['picture']),
@@ -33,6 +37,8 @@ class UserMapper {
       'age': entity.age,
       'phone': entity.phone,
       'cell': entity.cell,
+      'nat': entity.nationality,
+      'username': entity.username,
       'name': NameMapper.toMap(entity.name),
       'location': LocationMapper.toMap(entity.location),
       'picture': PictureMapper.toMap(entity.picture),

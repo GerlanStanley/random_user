@@ -12,6 +12,8 @@ class UserEntity extends Equatable {
   final int age;
   final String phone;
   final String cell;
+  final String nationality;
+  final String username;
   final NameEntity name;
   final LocationEntity location;
   final PictureEntity picture;
@@ -24,6 +26,8 @@ class UserEntity extends Equatable {
     required this.age,
     required this.phone,
     required this.cell,
+    required this.nationality,
+    required this.username,
     required this.name,
     required this.location,
     required this.picture,

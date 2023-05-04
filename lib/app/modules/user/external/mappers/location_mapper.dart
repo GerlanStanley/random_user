@@ -19,6 +19,9 @@ class LocationMapper {
       longitude: json.containsKey('longitude')
           ? json['longitude']
           : json['coordinates']['longitude'],
+      timezoneOffset: json.containsKey('timezone_offset')
+          ? json['timezone_offset']
+          : json['timezone']['offset'],
     );
   }
 
@@ -32,6 +35,7 @@ class LocationMapper {
       'postcode': entity.postcode,
       'latitude': entity.latitude,
       'longitude': entity.longitude,
+      'timezone_offset': entity.timezoneOffset,
     };
   }
 }

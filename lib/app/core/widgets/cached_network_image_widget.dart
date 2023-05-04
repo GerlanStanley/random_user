@@ -6,6 +6,7 @@ class CachedNetworkImageWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final BorderRadius? borderRadius;
+  final BoxBorder? border;
   final BoxFit? fit;
   final EdgeInsets? margin;
 
@@ -15,6 +16,7 @@ class CachedNetworkImageWidget extends StatelessWidget {
     this.width,
     this.height,
     this.borderRadius,
+    this.border,
     this.fit,
     this.margin,
   }) : super(key: key);
@@ -23,6 +25,10 @@ class CachedNetworkImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
+      decoration: BoxDecoration(
+        border: border,
+        borderRadius: borderRadius ?? BorderRadius.circular(12),
+      ),
       child: ClipRRect(
         borderRadius: borderRadius ?? BorderRadius.circular(12),
         child: SizedBox(

@@ -7,6 +7,7 @@ class LocationEntity {
   final String postcode;
   final String latitude;
   final String longitude;
+  final String timezoneOffset;
 
   LocationEntity({
     required this.streetNumber,
@@ -17,5 +18,6 @@ class LocationEntity {
     required this.postcode,
     required this.latitude,
     required this.longitude,
+    required this.timezoneOffset,
   });
 }

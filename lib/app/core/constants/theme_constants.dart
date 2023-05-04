@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'colors_constants.dart';
 
 class ThemeConstants {
-  static ThemeData dark = ThemeData(
+  static ThemeData light = ThemeData(
     fontFamily: "NunitoSans",
     primaryColor: ColorsConstants.primary,
     brightness: Brightness.dark,
@@ -17,10 +17,11 @@ class ThemeConstants {
       color: ColorsConstants.appBarBackground,
       iconTheme: IconThemeData(color: ColorsConstants.appBarIcon),
       elevation: 0,
+      centerTitle: false,
       titleTextStyle: TextStyle(
         color: ColorsConstants.appBarText,
         fontWeight: FontWeight.w700,
-        fontSize: 24,
+        fontSize: 20,
         fontFamily: "NunitoSans",
       ),
     ),
@@ -47,6 +48,12 @@ class ThemeConstants {
         fontSize: 30,
         fontFamily: "NunitoSans",
       ),
+      displayMedium: TextStyle(
+        color: ColorsConstants.text,
+        fontWeight: FontWeight.bold,
+        fontSize: 26,
+        fontFamily: "NunitoSans",
+      ),
       titleLarge: TextStyle(
         color: ColorsConstants.text,
         fontWeight: FontWeight.w800,
@@ -60,27 +67,27 @@ class ThemeConstants {
         fontFamily: "NunitoSans",
       ),
       titleSmall: TextStyle(
-        color: ColorsConstants.text,
-        fontWeight: FontWeight.w700,
-        fontSize: 14,
+        color: ColorsConstants.textExtraLight,
+        fontWeight: FontWeight.w500,
+        fontSize: 16,
         fontFamily: "NunitoSans",
       ),
       bodyLarge: TextStyle(
         color: ColorsConstants.text,
         fontWeight: FontWeight.normal,
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: "NunitoSans",
       ),
       bodyMedium: TextStyle(
-        color: ColorsConstants.textLight,
+        color: ColorsConstants.text,
         fontWeight: FontWeight.normal,
         fontSize: 14,
         fontFamily: "NunitoSans",
       ),
       bodySmall: TextStyle(
-        color: ColorsConstants.text,
+        color: ColorsConstants.textExtraLight,
         fontWeight: FontWeight.normal,
-        fontSize: 12,
+        fontSize: 14,
         fontFamily: "NunitoSans",
       ),
     ),
