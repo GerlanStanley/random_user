@@ -22,13 +22,14 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: ColorsConstants.primary,
       body: Center(
-        child: Icon(
-          Icons.person_pin,
+        child: Image.asset(
+          'assets/images/profile.png',
           color: Colors.white,
-          size: 150,
+          width: 150,
+          height: 150,
         ),
       ),
     );
