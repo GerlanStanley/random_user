@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../core/constants/colors_constants.dart';
+
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -21,8 +23,13 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: ColorsConstants.primary,
       body: Center(
-        child: Icon(Icons.person),
+        child: Icon(
+          Icons.person_pin,
+          color: Colors.white,
+          size: 150,
+        ),
       ),
     );
   }

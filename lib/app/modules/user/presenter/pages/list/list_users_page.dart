@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../../../core/widgets/empty_list_widget.dart';
 import '../../../../../core/widgets/failure_widget.dart';
 import '../../../../../core/widgets/load_widget.dart';
 import '../../../../../core/widgets/toast_widget.dart';
@@ -77,6 +78,14 @@ class _ListUsersPageState extends State<ListUsersPage> {
               onPressed: _getAllUsersSavedStore.getAll,
             );
           } else if (state is SuccessGetAllUsersSavedState) {
+            if (state.users.isEmpty) {
+              return const ListEmptyWidget(
+                iconData: Icons.person_off_outlined,
+                title: 'Lista vazia',
+                subtitle: 'Você ainda não salvou perfis',
+              );
+            }
+
             return ListViewComponent(
               users: state.users,
               deleteUserStore: _deleteUserStore,
