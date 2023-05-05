@@ -103,6 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     final saveState = _saveUserStore.state;
 
                     return IconButton(
+                      key: const Key('save_button'),
                       disabledColor: ColorsConstants.divider,
                       onPressed: getState is SuccessGetRandomUserState &&
                               saveState is! LoadingSaveUserState
@@ -127,6 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
       floatingActionButton: widget.localUser != null
           ? Container()
           : PrimaryElevatedButtonWidget(
+              key: const Key('list_button'),
               text: 'Perfis salvos',
               onPressed: () {
                 Modular.to.pushNamed('./list');
