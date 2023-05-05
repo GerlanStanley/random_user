@@ -2,7 +2,7 @@
 ![Flutter Version](https://img.shields.io/static/v1?label=flutter&message=3.7.12&color=42a5f5)
 ![Null Safety](https://img.shields.io/static/v1?label=null-safety&message=done&color=success)
 
-# MCU App
+# Random User App
 Esse é um app desenvolvido em flutter/dart que exibe um perfil aleatório e que pode ser salvo localmente
 
 ## ➕ Principais bibliotecas/tecnologias utilizadas
